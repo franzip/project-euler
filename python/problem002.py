@@ -3,6 +3,7 @@ def fib(upperBound):
     sumEvenFibo = 0
     fibo, increment = 1, 0
     while fibo < upperBound:
+        # generate fib numbers on the fly
         fibo, increment = fibo + increment, fibo
         if fibo % 2 == 0:
             sumEvenFibo += fibo
