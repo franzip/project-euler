@@ -1,5 +1,5 @@
 def fib(upperBound):
-    assert type(upperBound) == int
+    assert type(upperBound) == int or type(upperBound) == long
     sumEvenFibo = 0
     fibo, increment = 1, 0
     while fibo < upperBound:
