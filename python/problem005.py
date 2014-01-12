@@ -3,16 +3,17 @@ from fractions import gcd
 def lcm(a, b):
     return a * (b / gcd(a, b))
 
-def smallestMultiple(n):
-    assert n >= 3 and type(n) == int
-    sequence = range(1, n + 1)
-    def helper(sequence, temp):
-        # Reduce the list recursively by taking each time 2 common multiples
-        # going from the n-th element to the 1st      
+def smallest_multiple(upper_limit): 
+    assert upper_limit >= 3 and type(upper_limit) == int
+    # save the sequence as a list
+    sequence = range(1, upper_limit + 1)
+    def helper(sequence, accumulator):
+        # use tail recursion and return the least common multiple
+        # maximum recursion depth triggers for limit > 961
         if len(sequence) == 1:
-            return temp
+            return accumulator
         else:
-            return helper(sequence[:-1], lcm(temp, sequence.pop()))
+            return helper(sequence[:-1], lcm(accumulator, sequence.pop()))
     return helper(sequence, lcm(sequence.pop(), sequence.pop()))
         
-print smallestMultiple(20)
+print smallest_multiple(20)

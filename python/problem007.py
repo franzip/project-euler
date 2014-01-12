@@ -1,25 +1,26 @@
 from math import ceil
 
-def nthPrime(limit):
+def find_nth_prime(n):
     """
     This is a slightly modified version of code used for the Brown University's
     course "Coding the Matrix: Linear Algebra through Computer Science Application"
     """
-    assert limit >= 4 and type(limit) == int
+    assert n >= 4 and type(n) == int
     primes = dict()
     # Rough optimization attempt for our Sieve upper bound.
-    upperBound = int(ceil(limit**2 / 2.0))   
-    a = [True] * upperBound # Initialize the primality list
+    upper_bound = int(ceil(n**2 / 2.0))  
+    # Initialize the primality list 
+    a = [True] * upper_bound 
     a[0] = a[1] = False
     c = 1
-    for (i, isprime) in enumerate(a):
-        if isprime:
+    for (i, is_prime) in enumerate(a):
+        if is_prime:
             primes[c] = i
             c += 1
-            for n in range(i*i, upperBound, i): # Mark factors non-prime
-                a[n] = False
-    return primes[limit]
+            for x in range(i*i, upper_bound, i): 
+                # Mark factors non-prime
+                a[x] = False
+    return primes[n]
 
 
-print nthPrime(10001)
-
+print find_nth_prime(10001)
