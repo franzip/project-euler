@@ -5,12 +5,14 @@ def primes(limit):
     """
     assert type(limit) == int
     primeset = set()
-    a = [True] * limit # Initialize the primality list
+    # Initialize the primality list
+    a = [True] * limit
     a[0] = a[1] = False
-    for (i, isprime) in enumerate(a):
-        if isprime:
+    for (i, is_prime) in enumerate(a):
+        if is_prime:
             primeset.add(i)
-            for n in range(i*i, limit, i): # Mark factors non-prime
+            for n in range(i * i, limit, i): 
+                # Mark factors non-prime
                 a[n] = False
     return primeset
     

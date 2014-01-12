@@ -21,13 +21,13 @@ raw = """
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """
 
-# get the data into a list
+# get data into a list
 data = [[int(x) for x in raw.splitlines()[y].split()] 
         for y in range(len(raw.splitlines()))]
 
-def gridProduct(grid, offset):
+def largest_grid_product(grid, offset):
     assert type(grid) == list and type(offset) == int
-    maxval = 0
+    max_val = 0
     for x in range(len(grid) - offset):
         for y in range(len(grid[x]) - offset):
             # store horizontal, vertical, left and right diagonal
@@ -38,11 +38,11 @@ def gridProduct(grid, offset):
                 ld.append(grid[x + z][y + z])
                 rd.append(grid[x + z][y + (offset - z - 1)])
             results = [h, v, ld, rd]
-            # get maxval for current iteration
-            maxcurrent = max(reduce(lambda x, y: x * y, results[i]) 
+            # get max_val for current iteration
+            max_current = max(reduce(lambda x, y: x * y, results[i]) 
                         for i in range(len(results)))
-            if maxcurrent > maxval:
-                maxval = maxcurrent
-    return maxval
+            if max_current > max_val:
+                max_val = max_current
+    return max_val
     
-print gridProduct(data, 4)
+print largest_grid_product(data, 4)
