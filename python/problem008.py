@@ -5,7 +5,7 @@ def get_data():
     # Read data from project-euler
     data = ''
     raw_html = re.search(r'>\s\d(?s).*</p>', 
-           urllib2.urlopen('http://projecteuler.net/problem=8').read())
+               urllib2.urlopen('http://projecteuler.net/problem=8').read())
     for x in raw_html.group():
         if x.isdigit():
             data += str(x)
