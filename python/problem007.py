@@ -8,7 +8,7 @@ def find_nth_prime(n):
     assert n >= 4 and type(n) == int
     primes = dict()
     # Rough optimization attempt for our Sieve upper bound.
-    upper_bound = int(ceil(n**2 / 2.0))  
+    upper_bound = int(ceil(n ** 2 / 2.0))  
     # Initialize the primality list 
     a = [True] * upper_bound 
     a[0] = a[1] = False
@@ -17,7 +17,7 @@ def find_nth_prime(n):
         if is_prime:
             primes[c] = i
             c += 1
-            for x in range(i*i, upper_bound, i): 
+            for x in range(i * i, upper_bound, i): 
                 # Mark factors non-prime
                 a[x] = False
     return primes[n]
