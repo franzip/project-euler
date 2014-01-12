@@ -1,21 +1,25 @@
-def isPal(n):
+def is_palindrome(n):
     return n == n[::-1]
     
-def maxPalindrome(ndigits):
-    assert type(ndigits) == int and ndigits > 1
-    pal = 0
-    upperBound = 10**ndigits - 1
-    # Raw attempt of optimization by reducing the loop lower bound (epsilon).
-    # Should return a result in a reasonable time for ndigits <= 5
-    if ndigits <= 3:
-        epsilon = upperBound - upperBound//10
+def max_palindrome_for(n_digits):
+    assert type(n_digits) == int and n_digits > 1 
+    largest_palindrome = 0
+    found = False
+    upper_bound = (10**n_digits) - 1
+    # Attempt of optimization by setting a loop lower bound.
+    # Should return a result in a reasonable time for n_digits <= 8
+    if n_digits <= 3:
+        lower_bound = upper_bound - (upper_bound // 10)
     else:
-        epsilon = upperBound - upperBound//100
-    for x in range(upperBound, epsilon, -1):
-        for y in range(upperBound, epsilon, -1):
-            if isPal(str(x * y)) and x * y > pal:
-                pal = x * y
-    return pal
+        lower_bound = upper_bound - (upper_bound // 100)      
+    # check all pairs from upperbound to lowerbound    
+    for x in range(upper_bound, lower_bound, -1):
+        if found:
+            break
+        for y in range(upper_bound, lower_bound, -1):
+            if is_palindrome(str(x * y)) and not found:
+                largest_palindrome = x * y
+                found = True
+    return largest_palindrome
 
-print maxPalindrome(3)
-
+print max_palindrome_for(3)
