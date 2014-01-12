@@ -12,6 +12,7 @@ def get_data():
     return data
 
 def largest_prod(data, sequence_length):
+    assert sequence_length > 0 and sequence_length <= len(data) / 2
     result = 0
     for substring in range(0, len(data) - sequence_length):
         # compute the product for each subsequent sequence of sequence_length size
