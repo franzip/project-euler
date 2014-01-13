@@ -13,7 +13,7 @@ def get_data():
     return data
 
 def largest_prod(data, sequence_length):
-    # doesn't make sense to compute longer than half of the data string
+    # doesn't make sense to compute if sqeuence is longer than half of the data string
     assert sequence_length > 0 and sequence_length <= len(data) / 2
     result = 0
     for substring in range(0, len(data) - sequence_length):
