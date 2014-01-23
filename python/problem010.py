@@ -1,6 +1,5 @@
 def primes(limit):
-    """
-    Code used for the Brown University's course "Coding the Matrix: Linear Algebra 
+    """Code used for the Brown University's course "Coding the Matrix: Linear Algebra 
                 through Computer Science Application"
     """
     assert type(limit) == int
