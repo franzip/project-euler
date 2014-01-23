@@ -1,8 +1,7 @@
 import math
 
 def count_factors(n):
-    """ 
-    Get the number of divisors for an integer.
+    """ Get the number of divisors for an integer.
     """
     result = [1, n]
     for candidate in range(2, int(math.ceil(math.sqrt(n) + 1))):
@@ -13,8 +12,7 @@ def count_factors(n):
     return len(set(result))
     
 def get_triangular(n):
-    """
-    Get the first triangular number with n divisors
+    """Get the first triangular number with n divisors
     """
     assert type(n) == int and n > 0
     candidate, offset = 1, 2
