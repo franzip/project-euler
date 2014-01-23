@@ -1,6 +1,5 @@
 def find_abc_product(abc_sum):
-    """
-    abc_sum is (a + b + c) where a, b, c are any positive integers
+    """abc_sum is (a + b + c) where a, b, c are any positive integers.
     Returns (a * b * c) if abc_sum represents the sum of a pythagorean triplet
     """ 
     assert type(abc_sum) == int and abc_sum > 0
