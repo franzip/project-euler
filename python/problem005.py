@@ -9,7 +9,7 @@ def smallest_multiple(upper_limit):
     sequence = range(1, upper_limit + 1)
     def helper(sequence, accumulator):
         # use tail recursion and return the least common multiple
-        # maximum recursion depth triggers for limit > 961
+        # maximum recursion depth triggers for upper_limit > 961
         if len(sequence) == 1:
             return accumulator
         else:
