@@ -1,8 +1,7 @@
 from math import ceil
 
 def find_nth_prime(n):
-    """
-    This is a slightly modified version of code used for the Brown University's
+    """This is a slightly modified version of code used for the Brown University's
     course "Coding the Matrix: Linear Algebra through Computer Science Application"
     """
     assert n >= 4 and type(n) == int
