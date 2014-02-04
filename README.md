@@ -8,4 +8,4 @@ My solutions to Project Euler problems.
 </ul>
 </p>
 <br />
-<img src="http://projecteuler.net/profile/FrankMoody.png" />
+
