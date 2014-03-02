@@ -4,9 +4,9 @@ to_char = {0:0, 1:3, 2:3, 3:5, 4:4, 5:4, 6:3, 7:5, 8:5, 9:4, 10:3, 11:6, 12:6,
              60:5, 70:7, 80:6, 90:6}
 
 def count_letters(n):
-    assert type(n) == int and n < 9999
+    assert type(n) == int and n > 0 and n < 9999
     count = 0
-    # n < 10
+    # 0 < n < 10
     if len(str(n)) == 1:
         # base case, return mapped input value
         count += to_char[n]
