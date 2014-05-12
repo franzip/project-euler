@@ -1,7 +1,7 @@
 require 'net/http'
 
 def large_sum(n_digits)
-	uri = URI.parse("http://projecteuler.net/problem=13")
+  uri = URI.parse("http://projecteuler.net/problem=13")
   html = Net::HTTP.get(uri)
   data = /(^[\d]+<br \/>\n)+/.match(html)[0]
   data = data.lines.each do |x|
