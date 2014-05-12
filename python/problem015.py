@@ -8,4 +8,4 @@ def factorial(n):
     return n * factorial(n - 1)
 
             
-print lattice_paths(3)
+print lattice_paths(20)
