@@ -21,27 +21,26 @@ grid =
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 
 # get a list  of lists (1 list for each row)
-grid = grid.lines.map { |line| line.strip }.
-			 						map { |row| row.split(" ").map { |x| x.to_i } }
+grid = grid.lines.map { |line| line.strip }.map { |row| row.split(" ").map { |x| x.to_i } }
 
 def prod(grid, offset, row, col, max_val)
-	l_to_r = (0...offset).map { |x| grid[row][col+x] }.reduce(:*) rescue 0
-	u_to_d = (0...offset).map { |x| grid[row+x][col] }.reduce(:*) rescue 0
-	l_d = (0...offset).map { |x| grid[row+x][col+x] }.reduce(:*) rescue 0
-	r_d = (0...offset).map { |x| grid[row-x][col+x] }.reduce(:*) rescue 0
-	# return the largest product for each element...offset
-	[l_to_r, u_to_d, l_d, r_d, max_val].max
+  l_to_r = (0...offset).map { |x| grid[row][col+x] }.reduce(:*) rescue 0
+  u_to_d = (0...offset).map { |x| grid[row+x][col] }.reduce(:*) rescue 0
+  l_d = (0...offset).map { |x| grid[row+x][col+x] }.reduce(:*) rescue 0
+  r_d = (0...offset).map { |x| grid[row-x][col+x] }.reduce(:*) rescue 0
+  # return the largest product for each element...offset
+  [l_to_r, u_to_d, l_d, r_d, max_val].max
 end
 
 def largest_product(grid, offset = 4)
-	raise ArgumentError unless offset.is_a? Fixnum and offset > 1
-	max_val, grid_len = 0, grid.length
-	(0...grid_len).each do |x|
-		(0...grid_len).each do |y|
-			max_val = prod(grid, offset, x, y, max_val) 
-		end
-	end
-	max_val
+  raise ArgumentError unless offset.is_a? Fixnum and offset > 1
+  max_val, grid_len = 0, grid.length
+  (0...grid_len).each do |x|
+    (0...grid_len).each do |y|
+      max_val = prod(grid, offset, x, y, max_val) 
+    end
+  end
+  max_val
 end
 
 p largest_product(grid)
