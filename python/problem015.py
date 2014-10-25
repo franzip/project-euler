@@ -1,11 +1,10 @@
-def lattice_paths(n_grid):
-    assert type(n_grid) == int and n_grid > 0
-    return factorial(2 * n_grid) / factorial(n_grid)**2
-    
+def lattice_paths(x, y):
+    assert type(x) == int and x > 0 and type(y) == int and y > 0
+    return factorial(x + y) / (factorial(x) * factorial(y))
+
 def factorial(n):
-    if n < 1:
-        return 1
+    if n == 0: return 1
     return n * factorial(n - 1)
 
-            
-print lattice_paths(20)
+
+print lattice_paths(20, 20)
